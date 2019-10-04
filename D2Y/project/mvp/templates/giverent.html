@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<html>
+<head>
+<title>Create a Post </title>
+</head>
+
+<body>
+<h1>Create a Post </h1>
+<form action="" method="POST">
+{% csrf_token %}
+Name: <input type="text" name="name"/><br/>
+Location: <input type="text" name="location"/><br/>
+Venue: <input type="text" name="venue"/><br/>
+Content: <br/>
+<textarea cols="35" rows="8" name="description">
+</textarea><br/>
+<input type="submit" value="Post"/>
+</form>
+
+
+
+<h1>Posted already </h1>
+{% if apartment_sell %}
+<ol>
+	{% for a in apartment_sell %}
+	<li> Apartment location - {{a.location}} , Apartment person - {{a.person}} </li> 
+	{% endfor %}
+</ol>
+{% endif %}
+</body>
+
+</html>
+					
+{% endblock %}
